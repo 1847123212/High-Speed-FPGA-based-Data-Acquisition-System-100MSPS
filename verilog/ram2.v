@@ -1,0 +1,26 @@
+`timescale 1ns / 1ns
+//////////////////////////////////////////////////////////////////////////////////
+// Author:Niculescu Vlad
+// Module Name:    SRAM 
+//////////////////////////////////////////////////////////////////////////////////
+module SRAM(input clk,
+ input [10:0] addr,
+ input [10:0] addr_r,
+ output [9:0] data_out,
+ input [9:0] data_in,
+ input we,
+ output reg carry
+);
+
+reg [9:0] mem [0:2047];
+ always @(posedge clk) begin 
+							  if(we) mem[addr]<= data_in;
+							  if(addr==11'b11111111111) carry<=1'b1;
+							  else carry<=1'b0;
+							  end
+ assign data_out=mem[addr_r];
+ 
+ 
+endmodule
+
+

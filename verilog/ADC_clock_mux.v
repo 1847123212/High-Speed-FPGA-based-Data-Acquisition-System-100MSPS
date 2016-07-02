@@ -1,0 +1,12 @@
+`timescale 1ns / 1ps
+//////////////////////////////////////////////////////////////////////////////////
+// Author:Niculescu Vlad
+// Module Name:    ADC_clock_mux 
+//////////////////////////////////////////////////////////////////////////////////
+module ADC_clock_mux(input clk_200, input clk_50, input sel, output clk_adc_out
+    );
+
+assign clk_adc_out = sel ? clk_200 : clk_50;
+
+
+endmodule
